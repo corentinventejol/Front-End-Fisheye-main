@@ -1,3 +1,11 @@
+:root{
+    --color-primary: #901C1C;
+    --color-secondary: #DB8876;
+    --color-tertiary: #D3573C;
+    --color-dark-medium: #757575;
+    --color-light: #fff;
+}
+
 #contact_modal {
     display: none;
 }
@@ -6,6 +14,16 @@
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.photograph-header img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .contact_button {
@@ -73,4 +91,26 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+#orderBy {
+    color: #fff;
+    background-color:#901C1C;
+    padding: 1%;
+}
+
+#orderBy option {
+    padding: 1%;
+}
+
+.framed {
+    position: fixed;
+    bottom: 0;
+    right: 2%;
+    width: 246px;
+    height: 41px;
+    background-color: #DB8876;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    justify-content: space-around;
 }

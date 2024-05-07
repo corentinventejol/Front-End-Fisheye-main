@@ -5,6 +5,13 @@ body {
     margin: 0;
 }
 
+:root{
+    --color-primary: #901C1C;
+    --color-secondary: #DB8876;
+    --color-tertiary: #D3573C;
+    --color-dark-medium: #757575;
+    --color-light: #fff;
+}
 
 header {
     display: flex;
@@ -15,7 +22,6 @@ header {
 }
 
 h1 {
-    color: #901C1C;
     margin-right: 100px;
 }
 
@@ -32,15 +38,17 @@ h1 {
 }
 
 .photographer_section article {
-    justify-self: center;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.photographer_section article a {
+    text-decoration: none;
 }
 
 .photographer_section article h2 {
-    color: #D3573C;
     font-size: 36px;
 }
 
@@ -49,4 +57,9 @@ h1 {
     width: 200px;
     border-radius: 50%;
     object-fit: cover;
+}
+
+.photographer_section article p {
+    margin: 2px;
+    color: #333; 
 }

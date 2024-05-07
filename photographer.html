@@ -1,37 +1,57 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <img src="assets/images/logo.png" class="logo" />
-    </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+<head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="css/photographer.css" rel="stylesheet" type="text/css">
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <title>Fisheye - photographe </title>
+</head>
+<body>
+  <header>
+    <a href="/index.html">
+      <img src="assets/images/logo.png" class="logo" alt="fisheye logo"/>
+    </a>
+  </header>
+  <main id="main">
+    <section class="photograph-header">
+      <div class="photographer-info">
+        <h1 id="photographer-name" style="color: var(--color-tertiary);"></h1>
+        <h2 id="photographer-location" style="color: var(--color-primary);"></h2>
+        <p id="photographer-description" style="color: var(--color-dark-medium);"></p>
       </div>
-    </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
-  </body>
+      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+      <img id="photographer-picture" src="" alt="">
+    </section>
+    <label for="orderBy">Trier par</label>
+    <select name="orderBy" id="orderBy">
+      <option value="popularité">Popularité</option>
+      <option value="date">Date</option>
+      <option value="titre">Titre</option>
+    </select>
+    <div class="framed">
+      <p id="photographer-likes"></p>
+      <p id="photographer-price"></p>
+    </div>
+    <div id="media-container"></div>
+  </main>
+  <div id="contact_modal">
+    <div class="modal">
+      <header>
+        <h2>Contactez-moi</h2>
+        <img src="assets/icons/close.svg" onclick="closeModal()" />
+      </header>
+      <form>
+        <div>
+          <label>Prénom</label>
+          <input />
+        </div>
+        <button class="contact_button">Envoyer</button>
+      </form>
+    </div>
+  </div>
+  <script src="/scripts/templates/mediaCard.js" type="module"></script>
+  <script src="/scripts/pages/photographer.js" type="module"></script>
+</body>
 </html>
