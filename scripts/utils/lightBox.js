@@ -11,12 +11,9 @@ async function createModalWithCarousel(photographerId, mediaSrc, mediaType, altT
     let currentIndex = mediaItems.findIndex(media => media.src === mediaSrc && media.type === mediaType);
 
     function showMedia(index) {
-        const modalContainer = document.getElementById('lightbox_modal');
-        const carousel = document.getElementById('carousel');
+        const modalContainer = document.getElementById('lightbox');
+        const carousel = document.getElementById('lightbox_image');
         carousel.innerHTML = ''; // Clear any existing content
-
-        const item = document.createElement('div');
-        item.classList.add('carousel-item', 'active');
 
         let mediaElement;
         if (mediaItems[index].type === 'image') {
@@ -30,30 +27,29 @@ async function createModalWithCarousel(photographerId, mediaSrc, mediaType, altT
             mediaElement.alt = mediaItems[index].title;
         }
 
-        item.appendChild(mediaElement);
-        carousel.appendChild(item);
+        carousel.appendChild(mediaElement);
 
-        modalContainer.style.display = 'flex'; // Show the modal after its creation
+        modalContainer.classList.add('active'); // Show the modal after its creation
     }
 
     // Show the media the user clicked on
     showMedia(currentIndex);
 
     // Close button functionality
-    const closeButton = document.getElementById('close_button');
+    const closeButton = document.getElementById('lightbox_close');
     closeButton.addEventListener('click', () => {
-        const modalContainer = document.getElementById('lightbox_modal');
-        modalContainer.style.display = 'none';
+        const modalContainer = document.getElementById('lightbox');
+        modalContainer.classList.remove('active');
     });
 
     // Add event listeners for prev and next buttons
-    const prevButton = document.getElementById('prev_button');
+    const prevButton = document.getElementById('lightbox_prev');
     prevButton.addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + mediaItems.length) % mediaItems.length;
         showMedia(currentIndex);
     });
 
-    const nextButton = document.getElementById('next_button');
+    const nextButton = document.getElementById('lightbox_next');
     nextButton.addEventListener('click', () => {
         currentIndex = (currentIndex + 1) % mediaItems.length;
         showMedia(currentIndex);

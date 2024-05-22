@@ -61,12 +61,17 @@
       </form>
     </div>
   </div>
-  <div id="lightbox_modal">
-    <button id="close_button">&times;</button>
-    <div id="carousel"></div>
-    <button id="prev_button"><i class="fa-solid fa-less-than"></i></button>
-    <button id="next_button"><i class="fa-solid fa-greater-than"></i></button>
+  <div id="lightbox">
+    <div id="lightbox_container">
+        <div id="lightbox_close">X</div>
+        <div id="lightbox_content">
+            <button id="lightbox_prev" class="lightbox_arrow"><</button>
+            <div id="lightbox_image"></div>
+            <button id="lightbox_next" class="lightbox_arrow">></button>
+        </div>
+    </div>
   </div>
+
   <script src="/scripts/utils/lightBox.js" type="modal"></script>
   <script src="/scripts/utils/contactForm.js"></script>
   <script src="/scripts/pages/photographer.js" type="module"></script>

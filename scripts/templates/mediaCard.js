@@ -45,6 +45,7 @@ function mediaCardTemplate(data) {
         figcaption.appendChild(titleElement);
 
         const likesContainer = document.createElement('div');
+        likesContainer.classList.add('likes');
 
         const likeCount = document.createElement('span');
         likeCount.textContent = likes;
@@ -56,6 +57,18 @@ function mediaCardTemplate(data) {
         likesContainer.appendChild(likeIcon);
 
         figcaption.appendChild(likesContainer);
+
+        // Ajouter l'événement de clic pour ajouter/retirer un likes
+        likesContainer.addEventListener('click', () => {
+            const currentLikes = parseInt(likeCount.textContent, 10);
+            if (likesContainer.classList.contains('liked')) {
+                likeCount.textContent = currentLikes - 1;
+                likesContainer.classList.remove('liked');
+            } else {
+                likeCount.textContent = currentLikes + 1;
+                likesContainer.classList.add('liked');
+            }
+        });
 
         figure.appendChild(figcaption);
 
