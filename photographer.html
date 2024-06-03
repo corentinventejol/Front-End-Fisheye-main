@@ -44,18 +44,18 @@
       <header>
         <h1>Contactez-moi</h1>
         <span id="contact_Modal_Name"></span>
-        <img id="close_modal" name="Close Contact Form" src="assets/icons/close.svg" />
+        <img tabindex="0" id="close_modal" name="Close Contact Form" src="assets/icons/close.svg" />
       </header>
       <form>
         <div>
           <label for="First name">Prénom</label>
-          <input id="First name" />
+          <input tabindex="0" id="First name" />
           <label for="Last name">Nom</label>
-          <input id="Last name" />
+          <input tabindex="0" id="Last name" />
           <label for="Email">Email</label>
-          <input id="Email" />
+          <input tabindex="0" id="Email" />
           <label for="Your message">Votre message</label>
-          <input id="Your message" />
+          <input tabindex="0" id="Your message" />
         </div>
         <button name="Send" type="submit" class="contact_button">Envoyer</button>
       </form>
@@ -63,17 +63,18 @@
   </div>
   <div id="lightbox">
     <div id="lightbox_container">
-        <div id="lightbox_close">X</div>
+        <button tabindex="0" id="lightbox_close">X</button>
         <div id="lightbox_content">
-            <button id="lightbox_prev" class="lightbox_arrow"><</button>
+            <button tabindex="0" id="lightbox_prev" class="lightbox_arrow"><</button>
             <div id="lightbox_image"></div>
-            <button id="lightbox_next" class="lightbox_arrow">></button>
+            <button tabindex="0" id="lightbox_next" class="lightbox_arrow">></button>
         </div>
     </div>
   </div>
 
-  <script src="/scripts/utils/lightBox.js" type="modal"></script>
+  <script src="/scripts/utils/lightBox.js""></script>
   <script src="/scripts/utils/contactForm.js"></script>
+  <script src="/scripts/utils/sorter.js" type="module"></script>
   <script src="/scripts/pages/photographer.js" type="module"></script>
 </body>
 

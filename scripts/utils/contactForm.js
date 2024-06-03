@@ -15,9 +15,16 @@ document.addEventListener("DOMContentLoaded", function() {
     const contactButton = document.querySelector(".contact_button");
     contactButton.addEventListener("click", displayModal);
 
-    // Ajout du gestionnaire d'événements à l'image de fermeture du modal
+    // Ajout du gestionnaire d'événements à l'image de fermeture du modal pour la souris
     const closeButton = document.getElementById("close_modal");
     closeButton.addEventListener("click", closeModal);
+
+    // Ajout du gestionnaire d'événements à l'image de fermeture du modal pour le clavier
+    closeButton.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            closeModal();
+        }
+    });
 
     // Ajout du gestionnaire d'événements au bouton "Envoyer"
     const sendButton = document.querySelector("#contact_modal button[type='submit']");

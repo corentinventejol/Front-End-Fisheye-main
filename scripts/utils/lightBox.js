@@ -1,8 +1,10 @@
 import database from "../utils/database.js";
+import { sortMedia } from '../utils/sorter.js';
 
-async function createModalWithCarousel(photographerId, mediaSrc, mediaType, altText) {
+async function createModalWithCarousel(photographerId, mediaSrc, mediaType, altText, sortOption) {
     const medias = await database.getMediasByPhotographerId(photographerId);
-    const mediaItems = medias.map(media => ({
+    const sortedMedia = sortMedia([...medias], sortOption); // Trier les médias selon l'option de tri actuelle
+    const mediaItems = sortedMedia.map(media => ({
         src: media.image || media.video,
         type: media.image ? 'image' : 'video',
         title: media.title
@@ -13,6 +15,7 @@ async function createModalWithCarousel(photographerId, mediaSrc, mediaType, altT
     function showMedia(index) {
         const modalContainer = document.getElementById('lightbox');
         const carousel = document.getElementById('lightbox_image');
+        
         carousel.innerHTML = ''; // Clear any existing content
 
         let mediaElement;
@@ -27,7 +30,14 @@ async function createModalWithCarousel(photographerId, mediaSrc, mediaType, altT
             mediaElement.alt = mediaItems[index].title;
         }
 
+        // Append media element to the carousel
         carousel.appendChild(mediaElement);
+
+        // Create and append title element
+        const titleElement = document.createElement('div');
+        titleElement.classList.add('lightbox_title');
+        titleElement.textContent = mediaItems[index].title;
+        carousel.appendChild(titleElement);
 
         modalContainer.classList.add('active'); // Show the modal after its creation
     }
