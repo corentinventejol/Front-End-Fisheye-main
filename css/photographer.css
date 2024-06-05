@@ -274,6 +274,10 @@ form input {
     color: var(--color-primary);
 }
 
+.lightbox_arrow:focus {
+    border: 2px solid black;
+}
+
  #lightbox_container #lightbox_close {
     font-size: 50px;
     text-align: right;

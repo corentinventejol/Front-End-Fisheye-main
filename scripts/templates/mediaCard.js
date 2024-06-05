@@ -2,8 +2,12 @@ import createModalWithCarousel from '../utils/lightBox.js';
 
 const likeStates = {};
 
+// Ligne 10
+// Ligne 91 a 97
+
 function mediaCardTemplate(data) {
     const { photographerId, title, image, video, likes, id } = data;
+    likeStates[id] = likes
     function getMediaCardDOM() {
         const figure = document.createElement('figure');
         figure.classList.add('media-card');
@@ -83,6 +87,14 @@ function mediaCardTemplate(data) {
                 likesContainer.classList.add('liked');
                 likeStates[id] = currentLikes + 1;  // Mettez à jour l'état global
             }
+
+            let likeSum = 0
+
+            for(const key in likeStates) {
+                likeSum += likeStates[key]
+            }
+
+            document.querySelector('#photographer-likes').innerHTML = `${likeSum} <i class="fas fa-heart"></i>`
         };
 
         // Ajouter l'événement de clic pour ajouter/retirer un like
