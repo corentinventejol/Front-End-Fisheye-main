@@ -3,11 +3,14 @@ import createModalWithCarousel from '../utils/lightBox.js';
 const likeStates = {};
 
 // Ligne 10
-// Ligne 91 a 97
+// Ligne 91 à 97
 
 function mediaCardTemplate(data) {
     const { photographerId, title, image, video, likes, id } = data;
-    likeStates[id] = likes
+
+    // Initialisation de likeStates pour chaque média
+    likeStates[id] = likeStates[id] !== undefined ? likeStates[id] : likes;
+
     function getMediaCardDOM() {
         const figure = document.createElement('figure');
         figure.classList.add('media-card');
@@ -64,7 +67,8 @@ function mediaCardTemplate(data) {
         likesContainer.setAttribute('tabindex', '0');
 
         const likeCount = document.createElement('div');
-        const initialLikes = likeStates[id] !== undefined ? likeStates[id] : likes;
+        // Utilisation de likeStates pour initialiser le compteur de likes
+        const initialLikes = likeStates[id];
         likeCount.textContent = initialLikes;
         likesContainer.appendChild(likeCount);
 
@@ -88,13 +92,12 @@ function mediaCardTemplate(data) {
                 likeStates[id] = currentLikes + 1;  // Mettez à jour l'état global
             }
 
-            let likeSum = 0
-
-            for(const key in likeStates) {
-                likeSum += likeStates[key]
+            let likeSum = 0;
+            for (const key in likeStates) {
+                likeSum += likeStates[key];
             }
 
-            document.querySelector('#photographer-likes').innerHTML = `${likeSum} <i class="fas fa-heart"></i>`
+            document.querySelector('#photographer-likes').innerHTML = `${likeSum} <i class="fas fa-heart"></i>`;
         };
 
         // Ajouter l'événement de clic pour ajouter/retirer un like
@@ -111,7 +114,7 @@ function mediaCardTemplate(data) {
             }
         });
 
-        if (likeStates[id] !== undefined && likeStates[id] > likes) {
+        if (likeStates[id] > likes) {
             likesContainer.classList.add('liked');
         }
 
