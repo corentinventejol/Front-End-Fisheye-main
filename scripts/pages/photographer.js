@@ -19,7 +19,7 @@ async function displayPhotographer(id) {
     const photographerPrice = document.querySelector('#photographer-price');
 
     // Récupération du conteneur des médias dans le DOM
-    const mediaContainer = document.querySelector('#media-container');
+    // const mediaContainer = document.querySelector('#media-container');
 
     // récuperation pour le modal de contact
     const contactModalName = document.querySelector('#contact_Modal_Name');
