@@ -1,3 +1,6 @@
+// La fonction sortMedia() trie un tableau de medias selon le critère spécifié.
+// - a et b sont des parametres qui indique l'ordre de trie decroissant de b -> a et croissant de a -> b
+
 export function sortMedia(medias, criteria) {
     if (criteria === 'popularité') {
         return medias.sort((a, b) => b.likes - a.likes);

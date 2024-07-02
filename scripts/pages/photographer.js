@@ -32,7 +32,7 @@ async function displayPhotographer(id) {
     photographerPicture.alt = photographer.name;
 
     // Affichage des informations de l'encadré
-    photographerLikes.innerHTML = `${medias.reduce((totalLikes, media) => totalLikes + media.likes, 0)} <i class="fas fa-heart"></i>`;
+    photographerLikes.innerHTML = `${medias.reduce((totalLikes, media) => totalLikes + media.likes, 0)} <i class="fas fa-heart"></i>`; // methode reduce pour additionner
     photographerPrice.textContent = photographer.price + "€ / jour";
 
     // Afficher les médias initialement triés par popularité

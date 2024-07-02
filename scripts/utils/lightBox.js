@@ -59,6 +59,8 @@ async function createModalWithCarousel(photographerId, mediaSrc, mediaType, altT
         showMedia(currentIndex);
     });
 
+    // L'opérateur modulo (%) est utilisé pour s'assurer que l'index revient à 0 
+    // lorsque la fin de la liste mediaItems est atteinte, créant ainsi un cycle infini.
     const nextButton = document.getElementById('lightbox_next');
     nextButton.addEventListener('click', () => {
         currentIndex = (currentIndex + 1) % mediaItems.length;

@@ -2,9 +2,6 @@ import createModalWithCarousel from '../utils/lightBox.js';
 
 const likeStates = {};
 
-// Ligne 10
-// Ligne 91 à 97
-
 function mediaCardTemplate(data) {
     const { photographerId, title, image, video, likes, id } = data;
 
